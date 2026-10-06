@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+    <head>
+        <title>QuickCart Order Processor</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/receiptPretty.css">
+        <script>
+            function processOrder(){
+                const Count = document.getElementById("itemCount");
+                let Count1 = Count.value
+                const Desc = document.getElementById("itemDescription");
+                let Desc1 = Desc.value
+                let output = document.getElementById("receiptOutput");
+                let result = "";
+                let order = "ITEM: "
+                let code = ""
+                let word =""
+                let someNum = Desc1.length -1;
+                output.innerHTML = ""
+                if (Desc1 == ""){
+                    output.innerHTML = "Order Error: Description cannot be blank"
+                }
+                else if (Count1 > 19 || Count1 < 0){
+                    output.innerHTML = "Barcode Error: Invalid parameters"
+                }
+                else{
+                    for(let i=0; i < Count1; i++){
+                        order += " " + Desc1
+                    }
+                    for(let i=someNum; i>=0; i--){
+                        if (i % 2 ==0){
+                            result += Desc1[i].toUpperCase()
+                        }
+                        else{
+                            result += Desc1[i]
+                        }
+                    }
+                    Count.value -= Count.value;
+                    Desc.value = "";
+                    code = shiftOutString(result)
+                    word = wordCounter(Desc1, someNum)
+                    output.innerHTML += order + "<br>" + "BARCODE: " + code + "<br>" + word
+                }
+            }
+            function shiftOutString(theChar) { 
+                let myString = "";
+                for (let i = 0; i < theChar.length; i++) {
+                    let charCode = theChar.charCodeAt(i); 
+
+
+                    if (charCode >= 97 && charCode <= 122) { 
+                        charCode = ((charCode - 97 + 2) % 26) + 97; 
+                    }
+
+                    else if (charCode >= 65 && charCode <= 90) { 
+                        charCode = ((charCode - 65 + 2) % 26) + 65;
+                    } 
+                    myString += String.fromCharCode(charCode);
+                }
+                return myString;
+            }
+            function wordCounter(str, num){
+                let words = 0
+                let lastChar = ""
+                for(let i = 0; i <= num; i++){
+                    if(lastChar == str[i]){
+                        continue
+                    }
+                    else{
+                        if(str[i] == " "|| i == num){
+                            words += 1
+                        }
+                    }
+                    lastChar = str[i]   
+                }
+                return "number of words typed: " + words
+            } 
+        </script>
+        
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>QuickCart Receipt System</h1>
+            </header>
+           
+            <label for="itemCount">Quantity:</label>
+            <input type="number" id="itemCount">
+           
+            <label for="itemDescription">Product Name / Note:</label>
+            <textarea id="itemDescription" rows="5"></textarea>
+           
+            <input type="button" value="Process Order" onClick="processOrder()">
+           
+            <div id="receiptOutput"></div>
+        </main>
+    </body>
+</html>

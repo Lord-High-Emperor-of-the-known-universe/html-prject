@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just some JavaScript work</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="css/newFileJohn.css">
+
+      <script>
+         /*
+               Name: fillOutput
+               Purpose: Funtion to fill output
+               Owner: MAH
+         */
+
+         // Flag to track if capital 'Z' has been typed
+         let regular = "";
+
+         function resetInputStyle() {
+               const txtInput = document.getElementById("txtInput");
+               txtInput.style.backgroundColor = "";
+               txtInput.style.color = "";
+               txtInput.classList.remove("error-placeholder");
+         }
+
+         function fillOutput() {
+               const txtInput = document.getElementById("txtInput");
+               const txtOutput = document.getElementById("txtOutput");
+               let txtValue = txtInput.value.trim();
+
+               // Check for empty
+               if (txtValue == "") {
+                  txtOutput.innerHTML = "Come-on man, enter something";
+                  txtInput.style.backgroundColor = "red";
+                  txtInput.style.color = "white";
+
+                  // Add class to make placeholder text white
+                  txtInput.classList.add("error-placeholder");
+               }
+               else {
+                  let works = shiftOutString(txtValue)
+                  txtOutput.innerHTML = works
+                  txtInput.value = "";  
+                  
+                  resetInputStyle();
+               }
+         }
+
+         //
+         
+         function shiftInString(theChar) { 
+            // charCodeAt() finds the ASCII code of a character in a string
+            // Since we are just passing a character our string only contains
+            // a string with one element at position 0.  If we wanted to walk
+            // through an entire string, we would have a for loop going through
+            // the string and we would get each code at charCodeAt(i)
+            let charCode = theChar.charCodeAt(0); 
+            // Shift lowercase letters ('a' = 97 to 'z' = 122)
+
+            if (charCode >= 97 && charCode <= 122) { 
+               charCode = ((charCode - 97 + 2) % 26) + 97; 
+            }
+            // Shift uppercase letters ('A' = 65 to 'Z' = 90) 
+            else if (charCode >= 65 && charCode <= 90) { 
+               charCode = ((charCode - 65 + 2) % 26) + 65;
+            } 
+            return  String.fromCharCode(charCode); 
+         }   
+         function shiftOutString(theChar) { 
+            let myString = "";
+            for (let i = 0; i < theChar.length; i++) {
+               let charCode = theChar.charCodeAt(i); 
+            
+
+               if (charCode >= 97 && charCode <= 122) { 
+                  charCode = ((charCode - 97 - 2) % 26) + 97; 
+               }
+      
+               else if (charCode >= 65 && charCode <= 90) { 
+                  charCode = ((charCode - 65 - 2) % 26) + 65;
+               } 
+               myString += String.fromCharCode(charCode);
+            }
+            return myString;
+         }   
+
+         document.addEventListener("DOMContentLoaded", function() {
+            const txtInput = document.getElementById("txtInput");
+            
+            txtInput.addEventListener("beforeinput", function(event){
+               let typed = event.data;
+
+               if(typed){
+                  event.preventDefault();
+                  txtInput.value = this.value + shiftInString(typed)
+                  
+               }
+
+               
+            });
+            });
+      </script>
+   </head>
+   <body>
+       <div class="content">
+
+            <label for="txtInput">Enter text to be encrypted:</label>
+
+            <input
+                type="text"
+                id="txtInput"
+                placeholder="stuff 2.0"
+            >
+
+            <input
+                type="button"
+                id="clickButton"
+                value="Click Me"
+                onclick="fillOutput()"
+            >
+
+            <div class="output-container">
+                <div class="output-label">
+                    <label for="txtOutput">Output:</label>
+                </div>
+
+                <div id="txtOutput">
+                    unencripted text
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </body>
+</html>

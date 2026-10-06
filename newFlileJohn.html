@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just some JavaScript work</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="css/newFileJohn.css">
+
+
+    <script>
+        function fillOutput() {
+            // textinput = textinput text output = text output
+            const textInput = document.getElementById("textInput");
+            const textOutput = document.getElementById("textOutput");
+
+            let textValue = textInput.value.trim();
+
+            if (textValue === "") {
+                //if input is blank output should say...
+                textOutput.innerHTML = "Come on man, enter something";
+
+                // and Make input box red
+                textInput.style.background = "#DC143C";
+
+                // must add the class becuase its not accsessable in javascript 
+                textInput.classList.add("error-placeholder");
+            } 
+            else {
+                // Display the text
+                textOutput.innerHTML = textValue;
+
+                // Clear input so it does not get cloged with previous text inputs
+                textInput.value = "";
+
+                // Reset input appearance so it is not permanetly red
+                textInput.style.background = "white";
+                textInput.classList.remove("error-placeholder");
+            }
+        }
+            //we are making a event listener so you can submit with enter instead of clicking the button
+        document.addEventListener("DOMContentLoaded", function () {
+            const textInput = document.getElementById("textInput");
+
+            // Pressing Enter submits the input to the output
+            textInput.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    fillOutput();
+                }
+            });
+
+            // removing the class becuase it is nolonger nessasry
+            textInput.addEventListener("focus", function () {
+                textInput.style.background = "white";
+                textInput.classList.remove("error-placeholder");
+            });
+            document.addEventListener("focus", function () {
+                document.body.style.background = "linear-gradient(135deg, #eef2ff, #e0e7ff)";
+            });
+        });
+        //adding an event listener so when the Z key is pressed the background turns into a mango
+        document.addEventListener("keydown", function (event) {
+            if (event.key.toLowerCase() === "z") {
+                document.body.style.background ="linear-gradient(135deg, #8B0000, #DC143C, #FFD700, #B8860B)";
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <main>
+
+        <header>
+            <h1>This is JavaScript work</h1>
+        </header>
+
+        <div class="content">
+
+            <label for="textInput">Enter some text:</label>
+
+            <input
+                type="text"
+                id="textInput"
+                placeholder="stuff 2.0"
+            >
+
+            <input
+                type="button"
+                id="clickButton"
+                value="Click Me"
+                onclick="fillOutput()"
+            >
+
+            <div class="output-container">
+                <div class="output-label">
+                    <label for="textOutput">Output:</label>
+                </div>
+
+                <div id="textOutput">
+                    Text goes here
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
+
+

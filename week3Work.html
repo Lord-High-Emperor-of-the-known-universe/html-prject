@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>week #3 work</title>
+        <link id="theme-stylesheet" rel="stylesheet" href="css\week3work.css">
+        <script src="js\week3work.js"></script>
+    </head>
+    <body>
+        <headr>
+            <div>
+            
+            </div>
+        </header>
+        <main>
+            <form id="userForm" onsubmit="week3Go(); return false;">
+                <fieldset>
+                    <legend>Text Input</legend>
+                    <label for=""textInput>Enter random text</label>
+                    <input type="text" id="textInput" value="default" required>
+
+                    <label for="txtAInput">enter lots of random text</label>
+                    <textarea rows="5" id="rand2"></textarea>
+
+                    <label for="numInput">please enter a number between 1 and 25</label>
+                    <input type="num" id="numInput" value="5" min="1" max="25"required>
+                    <label for="tellInput">enter a tellephone number</label>
+                    <input type="tel" id="tellInput">
+                    <label for="passInput">please enter your password</label>
+                    <input type="password" id="passInput">
+                </fieldset>
+                <fieldset>
+                    <div class="radio-group">
+                        <legend>Groups Input</legend>
+                        <label for="rdoChild">Child</label>
+                        <input type="radio" id="rdoChild" name="ageRange" value="child">
+                        <label for="rdoAdult">Adult</label>
+                        <input type="radio" id="rdoAdult" name="ageRange" value="adult">
+                        <label for="rdoSenior">Senior</label>
+                        <input type="radio" id="rdoSenior" name="ageRange" value="Senior">
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="pizza" name="foodStuff" value="Pizza">
+                        <label for="chkPizza">Pizza</label>
+                        <input type="checkbox" id="Burger" name="foodStuff" value="Burger">
+                        <label for="chkBurger">Burger</label>
+                        <input type="checkbox" id="Wings" name="foodStuff" value="Wings">
+                        <label for="chkWings">Wings</label>
+                        <input type="checkbox" id="Pasta" name="foodStuff" value="Pasta">
+                        <label for="chkPasta">Pasta</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Other Input</legend>
+                    <div class="color-picker">
+                        <label for="clrTheme">Pick a color theme - junior</label>
+                        <input type="color" id="clrTheme" name="themeColor" value="#FF0000">
+                    </div>
+                    <div class="input-group">
+                        <label for="dtBirth">Enter when you was born</label>
+                        <input type="date" id="dtBirth">
+                    </div>
+                    
+                    <div class="input-group">
+                        <lable for="fileUpload">upload a WORKING assingment</lable>
+                        <input type="file" id="fileUpload">
+                    </div>
+
+                    <div class="select-group">
+                        <label for="selColor">choose a color</label>
+                        <select id="selColor">
+                            <option value="">--select one---</option>
+                            <option value="Red">RED</option>
+                            <option value="Gold">GOLD</option>
+                            <option value="black">BLACK</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <button type="Submit">Go</button>
+            </form>
+            <label for="output">output box</label>
+            <div id="output">
+
+            </div>
+        </main>
+        <footer>
+            <div>
+                &copy; <time id="year"></time> Computer Science Class
+            </div>
+        </footer>
+    </body>
+</html>

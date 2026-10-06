@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Just some JavaScript Work</title>
+        <meta charset="utf-8">
+        <link id="theme-stylesheet" rel="stylesheet" href="css/messingWithFuctions.css"
+        <script src="js/JSWork.js" defer></script>
+        <script>
+            function one() {
+                const num = document.getElementById("numInput");
+                let txt = document.getElementById("txtInput");
+                let output = document.getElementById("txtOutput");
+                // One parameter - no return value
+                two(num.value);
+                // two parameters - return value of text
+                let result = three(num.value, txt.value)
+                output.innerHTML += "<br>" + result;
+                output.innerHTML += "<br>" + four(num.value, txt.value, result);
+            }
+
+            function two(count) {
+                let output = document.getElementById("txtOutput")
+                let txt = document.getElementById("txtInput")
+                if (txt.value == ""|| count>15){
+                    output.innerHTML = "don't start do it right";
+                }
+                else{
+                for (let i=0; i<count; i++) {
+                    console.log(txt.value);
+                    output.innerHTML += "<br>" + txt.value;
+                }
+                }
+            }
+
+            function three(count, theText) {
+                let message = "THREE: ";
+                
+                if (count>15){
+                    message = "don't start do it right";
+                }
+                else{
+                    for (let i=0; i<count; i++) {
+                        message += " " + theText;
+                    }  
+                
+                } 
+                return message;     
+            }
+            function four(count, theText, theOutput){
+                let result = "FOUR: ";
+                let someNum = theText.length - 1;
+                if (isNaN(count) || count < 0 || theText === ""){
+                    result = "Positive numbers && some Text";
+                }
+                else{
+                    for(let i=someNum; i>=0; i--){
+                        if(i % 2 == 0){
+                            result += theText[i].toUpperCase()
+                        }
+                        else{
+                            result += theText[i];
+                        }
+                    }
+                }
+                return result;
+
+            }
+        </script>
+    </head>
+    <body>
+
+        <main>
+            <header>
+                <h1>This is JavaScript Work</h1>
+            </header>
+            <input type="number" id="numInput">
+            <textarea  id="txtInput" rows="8"></textarea>
+<!--            <input type="button" value="Click Me" onClick="fillOutput()"> -->
+                <input type="button" value="Click Me" onClick="one()">            
+            <div id="txtOutput">
+
+            </div>
+        </main>
+
+        <footer></footer>
+    </body>
+</html>

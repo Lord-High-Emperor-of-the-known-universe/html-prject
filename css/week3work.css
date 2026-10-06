@@ -1,0 +1,380 @@
+/* =========================================
+   WEEK #3 WEBSITE
+   Color Scheme: Gold • Red • Black
+   ========================================= */
+
+/* ---------- General Page Styling ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b0b0b;
+    color: #f5d76e;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---------- Header ---------- */
+
+header {
+    background-color: #8b0000;
+    border-bottom: 4px solid #d4af37;
+    min-height: 100px;
+    padding: 20px;
+}
+
+header div {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* ---------- Main Content ---------- */
+
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* ---------- Form ---------- */
+
+form {
+    background-color: #151515;
+    border: 2px solid #8b0000;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+/* ---------- Fieldsets ---------- */
+
+fieldset {
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    padding: 20px;
+}
+
+legend {
+    background-color: #8b0000;
+    color: #ffd700;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid #d4af37;
+}
+
+/* ---------- Labels ---------- */
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    color: #f5d76e;
+    font-weight: bold;
+}
+
+/* ---------- Input Fields ---------- */
+
+input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #080808;
+    color: #ffffff;
+    border: 2px solid #8b0000;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+/* ---------- Textarea ---------- */
+
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 150px;
+    padding: 12px;
+    background-color: #080808;
+    color: #ffffff;
+    border: 2px solid #8b0000;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    resize: vertical;
+    outline: none;
+}
+
+/* Textarea focus effect */
+
+textarea:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+/* Placeholder text */
+
+textarea::placeholder {
+    color: #888888;
+}
+
+.radio-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 20px;
+    white-space: nowrap;
+}
+
+.radio-group label {
+    display: inline-flex !important;
+    align-items: center;
+    color: #d4af37;
+    gap: 6px;
+    margin: 0;
+}
+
+.radio-group input[type="radio"] {
+    accent-color: #c00000;
+    margin: 0;
+}
+.checkbox-group {
+  display: flex;
+  gap: 6px;        /* space between checkboxes */
+  align-items: center;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 4px;         /* space between checkbox and its text */
+}
+
+/* Wrapper around the color picker */
+.color-picker {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: system-ui, sans-serif;
+}
+
+/* Label styling */
+.color-picker label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFD700; /* gold */
+}
+
+/* Actual color input */
+.color-picker input[type="color"] {
+  -webkit-appearance: none;
+  border: 2px solid #FFD700; /* gold border */
+  background: #000;          /* black background */
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* Remove default chrome circle */
+.color-picker input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-picker input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+/* Hover effect */
+.color-picker input[type="color"]:hover {
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.7);
+}
+/* Shared input wrapper */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-family: system-ui, sans-serif;
+}
+
+/* Labels */
+.input-group label {
+  color: #FFD700; /* gold */
+  font-weight: 600;
+}
+
+/* Date + File Inputs */
+.input-group input[type="date"],
+.input-group input[type="file"] {
+  background-color: #8B0000; /* dark red */
+  color: #FFD700;            /* gold text */
+  border: 2px solid #FFD700; /* gold border */
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* File input text color fix */
+.input-group input[type="file"]::file-selector-button {
+  background-color: #000;    /* black button */
+  color: #FFD700;            /* gold text */
+  border: 1px solid #FFD700;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Hover glow */
+.input-group input[type="date"]:hover,
+.input-group input[type="file"]:hover {
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.7);
+}
+/* Wrapper for select + label */
+.select-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-family: system-ui, sans-serif;
+}
+
+/* Label styling */
+.select-group label {
+  color: #FFD700; /* gold */
+  font-weight: 600;
+}
+
+/* Select dropdown styling */
+.select-group select {
+  background-color: #8B0000; /* dark red */
+  color: #FFD700;            /* gold text */
+  border: 2px solid #FFD700; /* gold border */
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  font-size: 14px;
+}
+
+/* Options inside dropdown */
+.select-group select option {
+  background-color: #000; /* black background for options */
+  color: #FFD700;         /* gold text */
+}
+
+/* Hover + focus glow */
+.select-group select:hover,
+.select-group select:focus {
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.7);
+  outline: none;
+}
+
+
+
+
+/* Output box container */
+.output-box {
+  background-color: #8B0000; /* dark red */
+  color: #FFD700;           /* gold text */
+  border: 2px solid #FFD700;/* gold border */
+  padding: 16px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+/* Optional title/header inside the box */
+.output-box-header {
+  font-weight: bold;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #FFD700;
+  padding-bottom: 4px;
+}
+
+/* Optional monospace content area */
+.output-box-content {
+  font-family: "Fira Code", "Consolas", monospace;
+  white-space: pre-wrap;
+}
+
+/* Input focus effect */
+
+input:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+/* ---------- Submit Button ---------- */
+
+button {
+    display: block;
+    margin: 25px auto 5px;
+    padding: 12px 35px;
+    background-color: #8b0000;
+    color: #ffd700;
+    border: 2px solid #d4af37;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+/* Button hover effect */
+
+button:hover {
+    background-color: #d4af37;
+    color: #8b0000;
+    transform: scale(1.05);
+}
+
+/* Button click effect */
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    margin-top: 50px;
+    padding: 25px;
+    background-color: #8b0000;
+    color: #ffd700;
+    text-align: center;
+    border-top: 4px solid #d4af37;
+}
+
+footer div {
+    font-size: 14px;
+}
+
+/* ---------- Responsive Design ---------- */
+
+@media (max-width: 600px) {
+    main {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    fieldset {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
